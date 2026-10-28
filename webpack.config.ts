@@ -31,9 +31,13 @@ export default {
     rules: [
       {
         test: /\.ts$/,
-        use: 'ts-loader',
+        use: [
+          path.resolve(__dirname, 'loaders/first-loader.ts'),
+          path.resolve(__dirname, 'loaders/second-loader.ts'),
+          'ts-loader'
+        ],
         exclude: /node_modules/,
-      },
+      }
     ],
   }
 }
